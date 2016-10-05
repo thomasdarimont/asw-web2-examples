@@ -25,7 +25,6 @@ public class LambdaExpressionEvolutionExample {
 
     // <= Java 1.4: Hier musste man noch manuell über die Liste iterieren.
     static void iterateAndChangeColorUpToJava14(List shapes, Color newColor) {
-
         for (Iterator itr = shapes.iterator(); itr.hasNext();) {
             Shape s = (Shape)itr.next();
             s.setColor(newColor);
@@ -34,7 +33,6 @@ public class LambdaExpressionEvolutionExample {
 
     // >= Java 5: Mit der Advanced For-Loop ging das schon einfacher.
     static void iterateAndChangeColorWithJava5(List<Shape> shapes, Color newColor) {
-
         for(Shape s : shapes){
             s.setColor(newColor);
         }
@@ -42,7 +40,6 @@ public class LambdaExpressionEvolutionExample {
 
     // >= Java 8: Mit Lambda-Expression: Das WAS statt WIE steht im Vordergrund!
     static void iterateAndChangeColorWithJava8(List<Shape> shapes, Color newColor) {
-
         shapes.forEach(s -> s.setColor(newColor));
     }
 }
