@@ -13,14 +13,13 @@ public class GreetingResource {
 
 	@Inject
 	Logger log;
-	
+
 	/**
 	 * <pre>
 	 * {@code 
 	 * curl -v http://localhost:8080/asw2016-demo-webapp/resources/greeting\?name=ASW
 	 * }
-	 * 
-	 * <pre>
+	 * </pre>
 	 * 
 	 * @param name
 	 * @return
@@ -31,7 +30,7 @@ public class GreetingResource {
 		if (name == null) {
 			name = "World";
 		}
-		
+
 		log.info("Greeting for " + name);
 
 		return "Hello " + name + " " + LocalDateTime.now();
