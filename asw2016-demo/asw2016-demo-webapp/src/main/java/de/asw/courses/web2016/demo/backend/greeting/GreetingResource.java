@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
 @Path("/greeting")
-public class HelloWorldResource {
+public class GreetingResource {
 
 	@Inject
 	Logger log;
