@@ -33,6 +33,6 @@ public class GreetingResource {
 
 		log.info("Greeting for " + name);
 
-		return "Hello " + name + " " + LocalDateTime.now();
+		return "Hello " + name + " (JAX-RS) " + LocalDateTime.now();
 	}
 }
