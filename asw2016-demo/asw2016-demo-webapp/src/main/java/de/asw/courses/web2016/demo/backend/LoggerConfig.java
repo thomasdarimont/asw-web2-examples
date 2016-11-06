@@ -1,9 +1,9 @@
 package de.asw.courses.web2016.demo.backend;
 
-import java.util.logging.Logger;
-
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
+
+import org.jboss.logging.Logger;
 
 public class LoggerConfig {
 
