@@ -1,11 +1,15 @@
 package de.asw.java.training2016.reflect;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 public class IntrospectionExample {
 
+	@XmlRootElement
 	static class Obj {
 
 		private String value0 = "hallo";
@@ -22,7 +26,7 @@ public class IntrospectionExample {
 
 		System.out.println("# Liefert Information über die “Struktur” eines Objektes:");
 		ObjectInspector.inspect(o);
-
+		
 		System.out.println("\n# Dynamische Methodenaufrufe durchführen:");
 		System.out.println(o.getClass().getMethod("someMethod").invoke(o));
 
@@ -45,6 +49,11 @@ public class IntrospectionExample {
 			Class<?> clazz = o.getClass();
 
 			log("%n## Inspecting class: %s%n", clazz);
+			
+			log("%n## Annotations:%n");
+			for (Annotation anno : clazz.getDeclaredAnnotations()) {
+				log("### declared annotation: %s%n", anno);
+			}
 
 			log("%n## Constructor:%n");
 			for (Constructor<?> ctor : clazz.getDeclaredConstructors()) {
