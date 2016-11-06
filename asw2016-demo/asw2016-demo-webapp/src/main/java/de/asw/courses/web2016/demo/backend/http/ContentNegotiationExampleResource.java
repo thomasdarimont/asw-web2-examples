@@ -17,7 +17,7 @@ import javax.ws.rs.Produces;
  * @author tom
  */
 @Path("/content-negotiation")
-public class ContentNegotiationExample {
+public class ContentNegotiationExampleResource {
 
 	/**
 	 * <pre>
