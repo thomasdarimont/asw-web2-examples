@@ -20,5 +20,4 @@ public class WebListenerExample implements ServletContextListener {
 	public void contextDestroyed(ServletContextEvent sce) {
 		log.info("Context Destroyed");
 	}
-
 }
