@@ -8,36 +8,24 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-
-import org.jboss.logging.Logger;
+//import javax.servlet.annotation.WebFilter;
 
 //@WebFilter(urlPatterns = { "/*" })
 public class ServletFilterExample implements Filter {
 
-	private static final Logger log = Logger.getLogger(ServletFilterExample.class);
+	public void init(FilterConfig filterConfig) throws ServletException { System.out.println("init filter"); }
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		log.info("init filter");
-	}
-
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
 		long startTime = System.currentTimeMillis();
-
 		try {
-			log.info("## before");
+			System.out.println("## before");
 			chain.doFilter(request, response);
 		} finally {
-			log.infof("## after. Took %s ms", System.currentTimeMillis() - startTime);
+			System.out.printf("## after. Took %s ms%n", System.currentTimeMillis() - startTime);
 		}
 	}
 
-	@Override
-	public void destroy() {
-		log.info("destroy filter");
-	}
-
+	public void destroy() { System.out.println("destroy filter"); }
 }
