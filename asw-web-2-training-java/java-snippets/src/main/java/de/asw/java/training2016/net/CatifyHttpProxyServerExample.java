@@ -121,7 +121,7 @@ public class CatifyHttpProxyServerExample {
 			return HTTP_METHODS_PATTERN.matcher(requestLine).matches();
 		}
 
-		private void pipeProxiedRequest(String requestLine, String hostHeaderValue, StringBuilder requestFragment,
+		private void pipeProxiedRequest(String requestLine, String hostHeaderValue, CharSequence requestFragment,
 				OutputStream proxiedOutputStream) throws IOException {
 
 			// Open TCP Socket Connection
