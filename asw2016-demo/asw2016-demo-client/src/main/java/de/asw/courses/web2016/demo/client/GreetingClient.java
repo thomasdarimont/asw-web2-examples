@@ -22,5 +22,4 @@ public class GreetingClient {
 
 		System.out.println(responseBody);
 	}
-
 }
