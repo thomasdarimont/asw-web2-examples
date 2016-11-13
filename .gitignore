@@ -1,5 +1,7 @@
 
 # Created by https://www.gitignore.io/api/intellij,eclipse,gradle,maven,java,node,osx,linux,windows
+#Ignore changes done by students
+src/main/java_students/
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
