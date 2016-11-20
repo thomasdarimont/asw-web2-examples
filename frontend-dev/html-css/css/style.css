@@ -1,0 +1,18 @@
+body { 
+  background-color: white;
+  color:navy;
+}
+
+ /* Element Typ Selector */
+h1 { color:orange; }
+
+/* CSS Class Selector */
+.message { color: green; }
+
+
+/* Element ID Selector */
+#smile { color: red; } 
+
+
+/* Pseudo Class Selector */
+#eintraege li:first-child { color:magenta; } 
