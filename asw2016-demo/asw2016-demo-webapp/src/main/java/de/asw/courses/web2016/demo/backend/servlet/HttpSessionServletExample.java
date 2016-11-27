@@ -36,8 +36,10 @@ public class HttpSessionServletExample extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		if (req.getParameterMap().containsKey("kill")) {
-			session.invalidate();
-			resp.getWriter().printf("Hello %s%n", (String) null);
+			if (session != null) {
+				session.invalidate();
+			}
+			resp.getWriter().printf("Session removed!");
 			return;
 		}
 
