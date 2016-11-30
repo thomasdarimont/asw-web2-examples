@@ -1,4 +1,4 @@
-package de.asw.courses.web2016.demo.backend.servlet;
+package de.asw.courses.web2016.demo.backend.servlet.filter;
 
 import java.io.IOException;
 
