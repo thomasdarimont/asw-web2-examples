@@ -10,12 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class IntrospectionExample {
 
 	@XmlRootElement
-	static class Obj {
+	public static class Obj {
 
 		private String value0 = "hallo";
 		protected int value1 = 42;
 
 		public String someMethod() {
+			System.out.println("IntrospectionExample.Obj.someMethod()");
 			return value0;
 		}
 	}
@@ -24,11 +25,12 @@ public class IntrospectionExample {
 
 		Obj o = new Obj();
 
-		System.out.println("# Liefert Information über die “Struktur” eines Objektes:");
+		System.out.println("# Liefert Information über die â€œStrukturâ€� eines Objektes:");
 		ObjectInspector.inspect(o);
 		
-		System.out.println("\n# Dynamische Methodenaufrufe durchführen:");
-		System.out.println(o.getClass().getMethod("someMethod").invoke(o));
+		System.out.println("\n# Dynamische Methodenaufrufe durchfÃ¼hren:");
+//		o.someMethod();/expliziter aufruf
+		System.out.println(o.getClass().getMethod("someMethod").invoke(o)); //aufruf über reflection
 
 		System.out.println("\n# Manipulation von Objektzustand:");
 		System.out.println("Vorher: " + o.someMethod());
