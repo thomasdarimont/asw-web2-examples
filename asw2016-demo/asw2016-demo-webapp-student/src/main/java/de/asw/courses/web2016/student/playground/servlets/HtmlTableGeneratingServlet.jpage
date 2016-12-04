@@ -1,0 +1,75 @@
+package de.asw.courses.web2016.student.playground.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * <ol>
+ * <li>Kopieren Sie den Inhalt in eine neue Java Klasse namens HtmlTableGeneratingServlet im selben package</li> 
+ * <li>Implementieren Sie die mit YOURCODE markierten Stellen</li>
+ * </ol>
+ * 
+ * @author tom
+ */
+@WebServlet("/dynamic-table")
+public class HtmlTableGeneratingServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		response.setContentType("text/html");
+
+		int columns = getIntParameterWithFallback("cols", 2, request);
+		int rows = getIntParameterWithFallback("rows", 3, request);
+
+		PrintWriter out = response.getWriter();
+		out.println("<!DOCTYPE HTML>");
+		out.println("<html>");
+		out.println("<head><title>Dynamische Tabelle</title></head>");
+		out.println("<body>");
+		out.println("<h2>Dynamische Tabelle</h2>");
+		out.println("<p>Zur&uuml;ck zum <a href=\"index.html\">Index</a>");
+		out.println(String.format("<h3>Dynamische Tabelle mit %s Spalten und %s Zeilen</h3>", columns, rows));
+		out.println("<table>");
+		out.println("<thead>");
+		for (int i = 0; i < columns; i++) {
+			// Note use the String.format(...) method to render a value into a String
+			out.println(String.format("<th>Spalte %s</th>", i));
+		}
+		out.println("</thead>");
+		out.println("<tbody>");
+		Random random = new Random();
+		
+		
+		for (int row = 0; row < rows; row++) {
+		
+			// YOURCODE start a new table row here
+			
+			for (int column = 0; column < columns; column++) {
+				// YOURCODE get new random value by calling: random.nextInt(1024)
+				// YOURCODE generate <td> element with random value here
+			}
+			
+			// YOURCODE end the table row here
+		}
+		out.println("</tbody>");
+		out.println("</table>");
+		out.println("</body>");
+		out.println("</html>");
+		out.close();
+	}
+
+	private int getIntParameterWithFallback(String name, int fallbackValue, HttpServletRequest request) {
+		try {
+			return Integer.valueOf(request.getParameter(name));
+		} catch (NumberFormatException ignored) {
+			return fallbackValue;
+		}
+	}
+}

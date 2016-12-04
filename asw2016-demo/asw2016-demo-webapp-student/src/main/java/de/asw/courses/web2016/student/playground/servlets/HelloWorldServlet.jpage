@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-**
+/**
  * <ol>
  * <li>Kopieren Sie den Inhalt in eine neue Java Klasse namens HelloWorldServlet im selben package</li> 
  * <li>Leiten Sie die Klasse {@link HelloWorldServlet} von der Klasse

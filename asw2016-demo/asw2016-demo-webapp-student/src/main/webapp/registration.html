@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASW-WEB2 Student-Files (Complete)</title>
+
+<style>
+input[type='email']:invalid+span::after {
+ color: red;
+ content: " x";
+}
+
+input[type='email']:valid+span::after {
+ color: green;
+ content: " ✔";
+}
+
+form {
+ width: 300px;
+}
+</style>
+</head>
+<body>
+ <h1>Liste der Teilnehmer</h1>
+ <a href="registration">Zur Liste</a>
+
+ <h1>Teilnehmer Registrierung</h1>
+
+ <form method="POST" action="registration">
+
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" placeholder="Name eingeben" required>
+  <span></span>
+  <br>
+  <label for="email">E-Mail</label>
+  <input type="email" name="email" id="email" placeholder="E-Mail eingeben" required>
+  <span></span>
+  <br>
+  <button>Registrieren</button>
+  <button type="reset">Zur&uuml;cksetzen</button>
+ </form>
+
+</body>
+</html>
