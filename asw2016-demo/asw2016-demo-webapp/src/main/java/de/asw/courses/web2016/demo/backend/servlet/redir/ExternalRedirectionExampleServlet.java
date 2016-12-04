@@ -19,7 +19,7 @@ public class ExternalRedirectionExampleServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String redirectUri = req.getParameter("redirect_uri");
-		resp.sendRedirect(redirectUri); // sends a 302 Temporary Redirect
+			String redirectUri = req.getParameter("redirect_uri");
+			resp.sendRedirect(redirectUri); // sends a 302 Temporary Redirect
 	}
 }
