@@ -1,13 +1,16 @@
 package de.asw.courses.web2016.student.playground.servlets;
 
-import java.io.PrintWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
+**
  * <ol>
+ * <li>Kopieren Sie den Inhalt in eine neue Java Klasse namens HelloWorldServlet im selben package</li> 
  * <li>Leiten Sie die Klasse {@link HelloWorldServlet} von der Klasse
  * {@link HttpServlet} ab.</li>
  * <li>Überschreiben Sie anschließend die Methode
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * <li>Verwenden Sie das Response Writer Objekt der {@link HttpServletResponse}
  * um mittels {@link PrintWriter#println()}
  * {@code "Hello World! " + LocalDateTime.now()} in der Response zu senden.</li>
+ * <li>Kommentieren Sie den auskommentierten Code in /asw2016-demo-webapp-student/src/main/webapp/WEB-INF/web.xml wieder ein</li>
  * </ol>
  * 
  * @author tom
