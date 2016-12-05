@@ -3,9 +3,7 @@ package de.asw.courses.web2016.demo.backend.servlet;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 
 import javax.servlet.ServletException;
@@ -23,7 +21,7 @@ import javax.servlet.http.Part;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB
 		maxFileSize = 1024 * 1024 * 50, // 50 MB
 		maxRequestSize = 1024 * 1024 * 100 // 100 MB
-		) 
+)
 public class FileUploadServlet extends HttpServlet {
 
 	@Override
