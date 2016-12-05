@@ -1,7 +1,5 @@
 package de.asw.courses.web2016.demo.backend.di;
 
-import java.time.LocalDateTime;
-
 public class BeanB {
 
 	public BeanB() {
@@ -9,7 +7,6 @@ public class BeanB {
 	}
 
 	public String getData() {
-		return this + " " + LocalDateTime.now().toString();
+		return "B";
 	}
-
 }

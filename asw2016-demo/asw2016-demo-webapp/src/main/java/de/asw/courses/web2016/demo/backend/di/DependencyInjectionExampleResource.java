@@ -15,9 +15,7 @@ public class DependencyInjectionExampleResource {
 
 	@GET
 	public String getData(){
-		
 		System.out.println("DependencyInjectionExampleResource.getData()");
-		
 		return beanA.getData();
 	}
 }
