@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 public class FormServlet extends HttpServlet {
 
 	private List<User> users = new ArrayList<>();
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String firstname = req.getParameter("firstname");
 		String lastname = req.getParameter("lastname");
-		
+
 		users.add(new User(firstname, lastname));
 		req.setAttribute("users", users);
 
