@@ -66,10 +66,8 @@ public class AttendeeRegistrationServlet extends HttpServlet {
 
 		// YOURCODE start the ordered list here
 		for (Attendee attendee : attendees) {
-			out.println(String.format("<li>Eintrag: %s</li>", attendee));
 			// YOURCODE create the list item element here.
-			// Note format the list item text like: Eintrag: Attendee [name=tom,
-			// email=test@localhost]
+			// Note format the list item text like: Eintrag: Attendee [name=tom, email=test@localhost]
 			// hint use the toString() representation of Attendee
 		}
 		// YOURCODE end the ordered list here
