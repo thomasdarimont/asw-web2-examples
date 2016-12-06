@@ -3,6 +3,14 @@ package de.asw.java.training2016.basics;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * <ol>
+ * <li>Kopieren Sie den Inhalt in eine neue Java Klasse namens ZahlenRaten im selben package</li> 
+ * <li>Implementieren Sie die mit YOURCODE markierten Stellen</li>
+ * </ol>
+ * 
+ * @author tom
+ */
 public class ZahlenRaten {
 
 	public static void main(String[] args) throws Exception {
@@ -35,7 +43,7 @@ public class ZahlenRaten {
 			}
 		}
 
-		System.out.printf("Sie haben %s Versuche gebraucht%n", /* YOURCODE */);
+		System.out.printf("Took you %s guesses%n", /* YOURCODE */);
 		
 		System.out.println("Game over");
 	}
