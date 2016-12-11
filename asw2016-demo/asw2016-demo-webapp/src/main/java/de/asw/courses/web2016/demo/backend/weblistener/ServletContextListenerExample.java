@@ -7,9 +7,9 @@ import javax.servlet.annotation.WebListener;
 import org.jboss.logging.Logger;
 
 @WebListener
-public class WebListenerExample implements ServletContextListener {
+public class ServletContextListenerExample implements ServletContextListener {
 
-	Logger log = Logger.getLogger(WebListenerExample.class);
+	Logger log = Logger.getLogger(ServletContextListenerExample.class);
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
