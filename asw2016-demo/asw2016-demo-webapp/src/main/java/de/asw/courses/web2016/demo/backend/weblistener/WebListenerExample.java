@@ -13,11 +13,11 @@ public class WebListenerExample implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		log.info("Context Initalized");
+		log.info("Context Initalized: " + sce.getServletContext().getContextPath());
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		log.info("Context Destroyed");
+		log.info("Context Destroyed: " + sce.getServletContext().getContextPath());
 	}
 }
