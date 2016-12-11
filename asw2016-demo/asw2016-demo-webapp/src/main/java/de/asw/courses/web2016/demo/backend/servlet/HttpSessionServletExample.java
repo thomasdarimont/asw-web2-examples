@@ -19,10 +19,20 @@ import javax.servlet.http.HttpSession;
  * </pre>
  * 
  * <pre>
- * {@code http://localhost:8080/asw2016-demo-webapp/session?kill }
+ * {@code http://localhost:8080/asw2016-demo-webapp/session }
  * </pre>
  * 
- * Chrome -> Developer Tools -> Application -> Cookies
+ * <pre>
+ * {@code http://localhost:8080/asw2016-demo-webapp/session?kill }
+ * </pre>
+ *
+ * <pre>
+ * {@code http://localhost:8080/asw2016-demo-webapp/session }
+ * </pre>
+ * 
+ * <p>
+ * Cookie Management: Chrome -> Developer Tools -> Application -> Cookies
+ * </p>
  * 
  * @author tom
  *
