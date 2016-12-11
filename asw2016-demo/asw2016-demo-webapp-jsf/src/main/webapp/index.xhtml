@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html 
+   xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:h="http://xmlns.jcp.org/jsf/html" 
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
  <title>#{msg['welcome.title']}</title>
 </h:head>
 <h:body>
- <h1>#{msg['welcome.text']}</h1>
- 
- <h:outputLink value="app/main.jsf">#{msg['welcome.gotoapp']}</h:outputLink>
+ <h1>User Lookup</h1>
+ <h:form>
+  <h:inputText value="#{user.username}" a:placeholder="Username.." />
+  <h:commandButton value="Greet" action="greet" />
+ </h:form>
 </h:body>
 </html>

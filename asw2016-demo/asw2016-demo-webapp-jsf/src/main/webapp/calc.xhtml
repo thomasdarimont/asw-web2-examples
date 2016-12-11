@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html 
+ xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://xmlns.jcp.org/jsf/html" 
+ xmlns:f="http://xmlns.jcp.org/jsf/core"
+ xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+ <title>#{msg['welcome.title']}</title>
+</h:head>
+<h:body>
+ <h1>Calculator</h1>
+ <h:form prependId="false">
+  Value1: <h:inputText value="#{calculator.value1}" id="value1" />
+  <br />
+  Value2: <h:inputText value="#{calculator.value2}" id="value2" />
+  <br />
+  Op: <h:selectOneMenu value="#{calculator.op}" id="op">
+   <f:selectItem itemValue="plus" itemLabel="+" />
+   <f:selectItem itemValue="minus" itemLabel="-" />
+   <!-- add some more operations like * / here -->
+  </h:selectOneMenu>
+  <h:commandButton value="Calculate" type="button" actionListener="#{calculator.calculate()}">
+   <f:ajax execute="value1 value2 op" render="result" />
+  </h:commandButton>
+  <br />
+  Result: <h:inputText value="#{calculator.result}" id="result" a:readonly="readonly" />
+ </h:form>
+</h:body>
+</html>
