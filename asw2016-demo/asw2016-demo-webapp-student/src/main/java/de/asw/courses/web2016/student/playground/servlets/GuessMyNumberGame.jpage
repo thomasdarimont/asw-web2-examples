@@ -1,0 +1,93 @@
+package de.asw.courses.web2016.student.playground.servlets;
+
+import java.io.IOException;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Instructions:
+ * <ul>
+ * <li>Copy the contents of this file into a new file called: GuessMyNumberGame.java in the same package.</li>
+ * <li>Make the servlet react to the /guess-my-number URI pattern.</li>
+ * <li>Fill in the missing code marked with ????, follow the hints in the comments!</li>
+ * </ul>
+ */
+public class GuessMyNumberGameServlet extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Random random = new Random();
+		int max;
+		try {
+			max = Integer.valueOf(????); // YOURCODE use the request parameter max 
+		} catch (NumberFormatException nfe) {
+			max = 100;
+		}
+
+		HttpSession session = request.getSession(true /* new session */);
+		
+		//YOURCODE set the session attributes correctly
+		session.????("draw", random.nextInt(max));
+		session.????("trailCounter", new AtomicInteger(0));
+		session.????("gameOver", false);
+
+		 //YOURCODE set the request hint attribute correctly
+		request.????("hint", "Try to guess my number!");
+
+		forwardToGameJsp(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = ???? ;//YOURCODE access the HTTP SESSION from the request
+
+		//YOURCODE extract the "gameOver" attribute from the HTTP SESSION
+		if (???? == null) {
+			request.setAttribute("hint", "You need to start a new game first!");
+			forwardToGameJsp(request, response);
+			return;
+		}
+
+		//YOURCODE extract the "gameOver" attribute from the HTTP SESSION
+		boolean gameOver = Boolean.valueOf(String.valueOf(????));
+		if (gameOver) {
+			request.setAttribute("hint", "You already won! Start a new game :)");
+			forwardToGameJsp(request, response);
+			return;
+		}
+
+		int trials = ((AtomicInteger) session.getAttribute("trailCounter")).incrementAndGet();
+		int guess = Integer.valueOf(request.getParameter("guess"));
+		int draw = (Integer) session.getAttribute("draw");
+
+		if (guess == draw) {
+			request.setAttribute("hint",
+					String.format("Congratulations! You found: %s. It took you %s trials", guess, trials));
+			session.setAttribute("gameOver", true);
+		} else if (guess < draw) {
+			request.setAttribute("hint", String.format("Your number %s is too low...", guess));
+		} else {
+			request.setAttribute("hint", String.format("Your number %s is too high...", guess));
+		}
+		
+		forwardToGameJsp(request, response);
+	}
+
+	void forwardToGameJsp(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		//YOURCODE get requestDispatcher for game.jsp from request and forward the request/response
+        ????
+	}
+}
