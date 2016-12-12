@@ -19,10 +19,12 @@ import javax.servlet.http.HttpSession;
  * <li>Fill in the missing code marked with ????, follow the hints in the comments!</li>
  * </ul>
  */
+????
 public class GuessMyNumberGameServlet extends HttpServlet {
 
+	//called for HTTP GET
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void ????(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		Random random = new Random();
@@ -46,8 +48,9 @@ public class GuessMyNumberGameServlet extends HttpServlet {
 		forwardToGameJsp(request, response);
 	}
 
+	//called for HTTP POST
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void ????(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		HttpSession session = ???? ;//YOURCODE access the HTTP SESSION from the request
@@ -71,16 +74,17 @@ public class GuessMyNumberGameServlet extends HttpServlet {
 		int guess = Integer.valueOf(request.getParameter("guess"));
 		int draw = (Integer) session.getAttribute("draw");
 
+		String hint;
 		if (guess == draw) {
-			request.setAttribute("hint",
-					String.format("Congratulations! You found: %s. It took you %s trials", guess, trials));
+			hint = String.format("Congratulations! You found: %s. It took you %s trials", guess, trials);
 			session.setAttribute("gameOver", true);
 		} else if (guess < draw) {
-			request.setAttribute("hint", String.format("Your number %s is too low...", guess));
+			hint = String.format("Your number %s is too low...", guess);
 		} else {
-			request.setAttribute("hint", String.format("Your number %s is too high...", guess));
+			hint = String.format("Your number %s is too high...", guess);
 		}
-		
+		//YOURCODE set "hint" request attribute to hint
+		????
 		forwardToGameJsp(request, response);
 	}
 
