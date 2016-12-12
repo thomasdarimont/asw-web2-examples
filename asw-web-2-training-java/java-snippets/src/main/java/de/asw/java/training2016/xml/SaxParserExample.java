@@ -2,6 +2,7 @@ package de.asw.java.training2016.xml;
 
 import java.io.InputStream;
 
+import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
@@ -21,9 +22,10 @@ public class SaxParserExample {
 				System.out.println("Start Element: " + qName);
 			}
 		};
-		SAXParserFactory //
+		SAXParser saxParser = SAXParserFactory //
 				.newInstance() //
-				.newSAXParser() //
+				.newSAXParser();
+		saxParser //
 				.parse(is, dh);
 	}
 }

@@ -2,6 +2,7 @@ package de.asw.java.training2016.xml;
 
 import java.io.InputStream;
 
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
@@ -10,17 +11,19 @@ import org.w3c.dom.NodeList;
 
 public class DomParserExample {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 
 		InputStream is = SaxParserExample.class.getClassLoader() //
 				.getResourceAsStream("messages.xml");
-		Document document = DocumentBuilderFactory //
+
+		DocumentBuilder parser = DocumentBuilderFactory //
 				.newInstance() //
-				.newDocumentBuilder() //
-				.parse(is);
-		
+				.newDocumentBuilder();
+
+		Document document = parser.parse(is);
+
 		NodeList nodeList = document.getElementsByTagName("message");
-		for(int i = 0, len = nodeList.getLength(); i < len;i++){
+		for (int i = 0, len = nodeList.getLength(); i < len; i++) {
 			Node node = nodeList.item(i);
 			System.out.println(node.getNodeName());
 		}
