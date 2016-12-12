@@ -7,8 +7,6 @@ import javax.annotation.PreDestroy;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-import org.jboss.logging.Logger;
-
 /**
  * <pre>
  * {@code curl -v http://localhost:8080/asw2016-demo-webapp/resources/lifecycle}
@@ -19,26 +17,23 @@ import org.jboss.logging.Logger;
 @Path("/lifecycle")
 public class LifecycleExampleResource {
 
-	private static final Logger log = Logger.getLogger(LifecycleExampleResource.class);
-
 	public LifecycleExampleResource() {
-		log.info("new LifecycleExampleResource()");
+		System.out.println("new LifecycleExampleResource()");
 	}
 
 	@PostConstruct
 	public void postConstruct() {
-		log.info("postConstruct");
+		System.out.println("postConstruct");
 	}
 
 	@PreDestroy
 	public void preDestroy() {
-		log.info("preDestory");
+		System.out.println("preDestory");
 	}
 
 	@GET
 	public String getTime() {
-
-		log.info("getTime");
+		System.out.println("getTime");
 		return LocalDateTime.now().toString();
 	}
 }
