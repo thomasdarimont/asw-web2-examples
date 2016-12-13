@@ -9,6 +9,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import lombok.Data;
+
 @Path("/validationExample")
 public class ValidationExampleResource {
 
@@ -47,6 +49,7 @@ public class ValidationExampleResource {
 		return user;
 	}
 
+	@Data
 	@XmlRootElement
 	public static class User {
 
@@ -58,28 +61,6 @@ public class ValidationExampleResource {
 		@Min(18)
 		int age;
 
-		public String getUsername() {
-			return username;
-		}
-
-		public void setUsername(String username) {
-			this.username = username;
-		}
-
-		public String getPassword() {
-			return password;
-		}
-
-		public void setPassword(String password) {
-			this.password = password;
-		}
-
-		public int getAge() {
-			return age;
-		}
-
-		public void setAge(int age) {
-			this.age = age;
-		}
+		// getter / setter
 	}
 }

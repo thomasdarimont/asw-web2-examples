@@ -27,14 +27,14 @@ public class SerializationExampleResource {
 	 * 
 	 * @return
 	 */
-	@GET
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public UserInfo getUserInfoDefault() {
+@GET
+@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+public UserInfo getUserInfoDefault() {
 
-		log.info("getUserInfoDefault");
+	log.info("getUserInfoDefault");
 
-		UserInfo userInfo = new UserInfo("Theo", "Tester", "theo@example.org");
-		
-		return userInfo;
-	}
+	UserInfo userInfo = new UserInfo("Theo", "Tester", "theo@example.org");
+	
+	return userInfo;
+}
 }
