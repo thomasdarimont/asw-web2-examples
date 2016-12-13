@@ -55,10 +55,10 @@ public class ContentNegotiationExampleResource {
 	 * 
 	 * @return
 	 */
-	@POST
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.TEXT_HTML)
-	public String consumeXml(String xml){
-		return "<pre>" + xml + "</pre>";
-	}
+@POST
+@Consumes(MediaType.APPLICATION_XML)
+@Produces(MediaType.TEXT_HTML)
+public String consumeXml(String xml){
+	return "<pre>" + xml + "</pre>";
+}
 }

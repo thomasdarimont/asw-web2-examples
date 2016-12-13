@@ -42,12 +42,12 @@ public class ValidationExampleResource {
 	 * @see http://localhost:8080/asw2016-demo-webapp/resources/validationExample/user
 	 * @return
 	 */
-	@POST
-	@Path("/user")
-	@Produces(MediaType.APPLICATION_JSON)
-	public User validate(@Valid User user) {
-		return user;
-	}
+@POST
+@Path("/user")
+@Produces(MediaType.APPLICATION_JSON)
+public User validate(@Valid User user) {
+	return user;
+}
 
 	@Data
 	@XmlRootElement
