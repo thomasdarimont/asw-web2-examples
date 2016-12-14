@@ -8,13 +8,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * <pre>{@code curl default Accept: *\/*}</pre>
+ * <pre>
+ * {@code curl default Accept: *\/*}
+ * </pre>
+ * 
  * <pre>
  * {@code curl -v http://localhost:8080/asw2016-demo-webapp/resources/content-negotiation }
  * </pre>
  *
- * Browser?
- * Try with chrome...
+ * Browser? Try with chrome...
+ * 
  * @see http://localhost:8080/asw2016-demo-webapp/resources/content-negotiation
  * 
  * @author tom
@@ -47,7 +50,7 @@ public class ContentNegotiationExampleResource {
 	public String getJson() {
 		return "{\"json\":\"true\"}";
 	}
-	
+
 	/**
 	 * <pre>
 	 * {@code curl -v -H "Content-Type: application/xml" -d "<data/>"  http://localhost:8080/asw2016-demo-webapp/resources/content-negotiation }
@@ -55,10 +58,10 @@ public class ContentNegotiationExampleResource {
 	 * 
 	 * @return
 	 */
-@POST
-@Consumes(MediaType.APPLICATION_XML)
-@Produces(MediaType.TEXT_HTML)
-public String consumeXml(String xml){
-	return "<pre>" + xml + "</pre>";
-}
+	@POST
+	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.TEXT_HTML)
+	public String consumeXml(String xml) {
+		return "<pre>" + xml + "</pre>";
+	}
 }
