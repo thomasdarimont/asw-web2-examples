@@ -14,7 +14,7 @@ public class DomParserExample {
 	public static void main(String[] args) throws Exception {
 
 		InputStream is = SaxParserExample.class.getClassLoader() //
-				.getResourceAsStream("messages.xml");
+				.getResourceAsStream("message.xml");
 
 		DocumentBuilder parser = DocumentBuilderFactory //
 				.newInstance() //
@@ -25,7 +25,9 @@ public class DomParserExample {
 		NodeList nodeList = document.getElementsByTagName("message");
 		for (int i = 0, len = nodeList.getLength(); i < len; i++) {
 			Node node = nodeList.item(i);
-			System.out.println(node.getNodeName());
+			System.out.printf("%s id=%s%n", //
+					node.getNodeName(), //
+					node.getAttributes().getNamedItem("id").getNodeValue());
 		}
 	}
 }
