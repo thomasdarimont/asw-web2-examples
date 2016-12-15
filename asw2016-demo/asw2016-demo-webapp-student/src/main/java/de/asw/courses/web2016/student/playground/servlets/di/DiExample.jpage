@@ -1,0 +1,45 @@
+// 1) Place the following classes into separate Files 
+BeanA.java
+BeanB.java
+DiServlet.java
+
+// 2) Configure Dependency Injection as shown in the lecture!
+
+@WebServlet("/diservlet")
+public class DiServlet extends HttpServlet {
+
+	private BeanA beanA;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		if(beanA == null){
+			resp.getWriter().println("You need to configure Dependency Injection!");
+			return;
+		}
+		
+		resp.getWriter().println("DiServlet " + beanA.getData());
+	}
+}
+
+
+public class BeanA {
+
+	private final BeanB beanB;
+
+	public BeanA(BeanB beanB) {
+		this.beanB = beanB;
+	}
+
+	public String getData() {
+		return "A " + beanB.getData();
+	}
+}
+
+public class BeanB {
+
+	public String getData() {
+		return "B " + System.currentTimeMillis();
+	}
+}
+

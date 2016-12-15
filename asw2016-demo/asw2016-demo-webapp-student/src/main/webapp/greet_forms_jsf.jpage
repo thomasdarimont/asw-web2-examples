@@ -1,0 +1,50 @@
+// Create the following .xhtml files in the current directory 
+- greet_form.xhtml
+- greet_person.xhtml
+
+
+greet_form.xhtml: 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+ <title>Greet Person</title>
+</h:head>
+<h:body>
+ <h1>Greet Person</h1>
+ <h:form>
+  <h:inputText value="#{person.firstname}" a:placeholder="Firstname..."/><br/>
+  <h:inputText value="#{person.lastname}" a:placeholder="Lastname..."/><br/>
+  <h:commandButton value="Greet" action="?????" /> <!-- YOURCODE refer to the greet_person.xhtml HINT: leave out the file extension! -->
+ </h:form>
+</h:body>
+</html>
+
+
+greet_person.xhtml:
+<!DOCTYPE html>
+<html 
+ xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f="http://xmlns.jcp.org/jsf/core"
+ >
+<h:head>
+ <title>Greetings</title>
+</h:head>
+<h:body>
+ <h1>Greetings</h1>
+ <h1>Hello <h:outputText value="#{person.firstname}"/> <h:outputText value="#{person.lastname}"/></h1>
+ <h:form>
+ <h:commandButton value="PrintName" actionListener="#{person.printName()}">
+ <!-- calls Person#printName() via AJAX -->
+  <f:ajax event="action" execute="@form" render="@form"/>
+ </h:commandButton>
+ <h:commandButton value="Greet anew" action="greet_form" />
+ </h:form>
+</h:body>
+</html>
+
+// After that Follow the instructions in /asw2016-demo-webapp-student/src/main/java/de/asw/courses/web2016/student/playground/Person.jpage
+
+
+
+

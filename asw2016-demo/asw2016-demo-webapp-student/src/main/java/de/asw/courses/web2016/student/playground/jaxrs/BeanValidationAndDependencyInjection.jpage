@@ -1,0 +1,101 @@
+// create 3 Java Classes form the following code fragments
+- User
+- UserService
+- ValidationExampleResource
+
+// Use postman to send an invalid request to the following URL: 
+http://localhost:8080/asw2016-demo-webapp-student/resources/validationExample/user
+// use the following Request body with application/json Mime-Type
+
+{
+	"username":"tester",
+	 "password": "test1234",
+	 "age": 17
+}
+
+package de.asw.courses.web2016.student.playground.jaxrs;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import lombok.Data;
+
+@Data
+@XmlRootElement
+public class User {
+
+	@NotNull
+	String username;
+
+	String password;
+
+	@Min(18)
+	int age;
+	
+	boolean processed;
+}
+
+package de.asw.courses.web2016.student.playground.jaxrs;
+
+public class UserService {
+
+	public User process(User user){
+		System.out.println("Got: " + user);
+		user.setProcessed(true);
+		return user;
+	}
+}
+
+
+package de.asw.courses.web2016.student.playground.jaxrs;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/validationExample")
+public class ValidationExampleResource {
+
+	@Inject
+	UserService userService;
+
+	/**
+	 * 
+	 * <p>
+	 * Example Payload bad
+	 * </p>
+	 * 
+	 * <pre>
+	 *      {
+	 *      "username":"tester",
+	 *      "password": "test1234",
+	 *      "age": 17
+	 *      }
+	 * </pre>
+	 * <p>
+	 * Example Payload good
+	 * </p>
+	 * 
+	 * <pre>
+	 *      {
+	 *      "username":"tester",
+	 *      "password": "test1234",
+	 *      "age": 18
+	 *      }
+	 * </pre>
+	 * 
+	 * @see http://localhost:8080/asw2016-demo-webapp-student/resources/validationExample/user
+	 * @return
+	 */
+	@POST
+	@Path("/user")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User validate(@Valid User user) { //Note here we ensure that we get a "Valid" user passed in by using the @Valid annotation
+		return userService.process(user);
+	}
+
+}
