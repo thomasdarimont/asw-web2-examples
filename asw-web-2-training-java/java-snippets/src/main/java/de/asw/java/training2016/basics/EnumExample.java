@@ -41,7 +41,7 @@ public class EnumExample {
 		
 		System.out.println(foo.getFarbCode());
 	}
-	
+	 
 	enum Farbe {
 		ROT("FF0000"), GELB("00FFFF"), GRÜN("00FF00");
 		
