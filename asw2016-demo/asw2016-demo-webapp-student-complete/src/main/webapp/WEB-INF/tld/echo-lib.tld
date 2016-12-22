@@ -1,0 +1,16 @@
+<taglib>
+   <tlib-version>1.0</tlib-version>
+   <jsp-version>1.2</jsp-version>
+   <tag>
+      <name>echo</name>
+      <tag-class>de.asw.courses.web2016.student.playground.jsp.EchoTag
+      </tag-class>
+      <body-content>scriptless</body-content>
+   </tag>
+   <tag>
+      <name>uppercase</name>
+      <tag-class>de.asw.courses.web2016.student.playground.jsp.UppercaseTag
+      </tag-class>
+      <body-content>scriptless</body-content>
+   </tag>
+</taglib>

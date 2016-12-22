@@ -19,5 +19,6 @@
 		<module>asw2016-demo-client</module>
     <module>asw2016-demo-webapp-jsf</module>
     <module>asw2016-demo-webapp-student</module>
+    <module>asw2016-demo-webapp-student-complete</module>
   </modules>
 </project>
