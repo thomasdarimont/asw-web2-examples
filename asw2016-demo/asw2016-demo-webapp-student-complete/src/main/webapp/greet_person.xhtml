@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html 
+ xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f="http://xmlns.jcp.org/jsf/core"
+ >
+<h:head>
+ <title>Greetings</title>
+</h:head>
+<h:body>
+ <h1>Greetings</h1>
+ <h1>Hello <h:outputText value="#{person.firstname}"/> <h:outputText value="#{person.lastname}"/></h1>
+ <h:form>
+ <h:commandButton value="PrintName" actionListener="#{person.printName()}">
+ <!-- call User#someOperation() via AJAX -->
+  <f:ajax event="action" execute="@form" render="@form"/>
+ </h:commandButton>
+ <h:commandButton value="Greet anew" action="greet_form" />
+ </h:form>
+</h:body>
+</html>
