@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
- <modelVersion>4.0.0</modelVersion>
- <parent>
-  <artifactId>asw2016-demo</artifactId>
-  <groupId>de.asw.courses.web2016</groupId>
-  <version>0.0.1-SNAPSHOT</version>
- </parent>
- <artifactId>asw2016-demo-webapp</artifactId>
- <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>asw2016-demo</artifactId>
+		<groupId>de.asw.courses.web2016</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>asw2016-demo-webapp</artifactId>
+	<packaging>war</packaging>
 
- <dependencies>
-  <dependency>
-   <groupId>javax</groupId>
-   <artifactId>javaee-api</artifactId>
-   <version>7.0</version>
-   <scope>provided</scope>
-  </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
 
-  <dependency>
-   <groupId>org.jboss.logging</groupId>
-   <artifactId>jboss-logging</artifactId>
-   <version>3.3.0.Final</version>
-   <scope>provided</scope>
-  </dependency>
-  
-  <dependency>
-     <groupId>org.hibernate</groupId>
-     <artifactId>hibernate-validator</artifactId>
-     <version>5.3.3.Final</version>
-     <scope>provided</scope>
-  </dependency>
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.3.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
 
-  <dependency>
-   <groupId>org.projectlombok</groupId>
-   <artifactId>lombok</artifactId>
-   <version>1.16.8</version>
-   <optional>true</optional>
-  </dependency>
- </dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.3.Final</version>
+			<scope>provided</scope>
+		</dependency>
 
- <build>
-  <finalName>asw2016-demo-webapp</finalName>
- </build>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.8</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<!-- to get rid of the error message: Can not find the tag library descriptor 
+				for "http://java.sun.com/jsp/jstl/ core" -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>asw2016-demo-webapp</finalName>
+	</build>
 </project>
